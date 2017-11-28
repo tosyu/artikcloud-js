@@ -1,18 +1,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['superagent'], factory);
+    define(['light-request'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('superagent'));
+    module.exports = factory(require('light-request'));
   } else {
     // Browser globals (root is window)
     if (!root.ArtikCloud) {
       root.ArtikCloud = {};
     }
-    root.ArtikCloud.ApiClient = factory(root.superagent);
+    root.ArtikCloud.ApiClient = factory(root.lightRequest);
   }
-}(this, function(superagent) {
+}(this, function(createRequest) {
   'use strict';
 
   /**
@@ -335,7 +335,7 @@
 
     var _this = this;
     var url = this.buildUrl(path, pathParams);
-    var request = superagent(httpMethod, url);
+    var request = createRequest(httpMethod, url);
 
     // apply authentications
     this.applyAuthToRequest(request, authNames);
