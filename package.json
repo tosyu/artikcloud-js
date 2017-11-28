@@ -8,7 +8,7 @@
     "test": "./node_modules/mocha/bin/mocha --recursive"
   },
   "dependencies": {
-    "superagent": "1.7.1"
+    "superagent": "tosyu/superagent#consoledebug"
   },
   "devDependencies": {
     "expect.js": "~0.3.1",
